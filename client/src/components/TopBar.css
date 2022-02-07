@@ -1,0 +1,10 @@
+.ap__container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right__container a{
+    margin:20px;
+    text-decoration: none;
+    color:#111;
+}

@@ -1,0 +1,18 @@
+.ap__navbar{
+    display: flex;
+    justify-content: space-between;
+    background: #111;
+}
+
+.ap__navbar_right{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color:#fff;
+    width:200px;
+}
+
+.ap__navbar_right >a{
+    text-decoration: none;
+    color:#fff;
+}

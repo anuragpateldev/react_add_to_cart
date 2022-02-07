@@ -1,0 +1,26 @@
+.App {
+  display: flex;
+  width:100vw;
+  height: 100vh;
+}   
+.InnerPage__wrapper_Row{
+  margin:10px 70px;
+  background-color: #fff;
+  min-height: 400px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.5);
+  width:90%;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.InnerPage__wrapper_Row_title{
+  border:1px solid #eee;
+}
+.InnerPage__wrapper_Row_title h2{
+  padding: 12px 6px;
+  color:#676360;
+  font-weight: 400;
+  font-size:20px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}

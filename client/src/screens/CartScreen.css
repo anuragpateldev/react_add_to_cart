@@ -1,0 +1,29 @@
+.CartScreen__parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+.cartScreen__left{
+    float:left;
+    width:50%;
+}
+.cartScreen__box{
+    float:left;
+}
+.cartScreen__img{
+    width:100px;;
+    float:left;
+}
+
+.minus_counter{
+    background: tomato;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.plus_counter{
+    background: greenyellow;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
