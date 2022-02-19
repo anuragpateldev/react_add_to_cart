@@ -19,13 +19,18 @@ const Pizza = ({pizza}) =>{
         dispatch(addToCart(pizza,quantity,varient));
     }
 
+    const changeQty =(e)=>{
+        console.log('changeQty');
+        const qty = e.target.value;
+        setQuantity(Number(qty));
+    }
+
     const qty_arr = [1,2,3,4,5,6,7,8,9,10];
     return (
         <Card style={{ width: '18rem',marginTop:'30px' }}>
             <Card.Img variant="top" src={pizza.image} style={{height:'250px'}} onClick={handleShow}/>
             <Card.Body>
                 <Card.Title>{pizza.name}</Card.Title>
-                <Card.Text>
                     <Row>
                         <Col md={6}>
                             Variant
@@ -36,7 +41,7 @@ const Pizza = ({pizza}) =>{
                             </select>
                         </Col>
                         <Col md={6}>Quantity<br/>
-                        <select>
+                        <select onChange={(e)=>changeQty(e)}>
                             {
                                 qty_arr.map( (v,i)=>(
                                     <option key={`index_${i}`} value={v}>{v}</option>
@@ -45,10 +50,9 @@ const Pizza = ({pizza}) =>{
                         </select>
                         </Col>
                     </Row>
-                </Card.Text>
-                <Row>
+                <Row style={{marginTop:'30px'}}>
                         <Col md={6}>Price : 399 /- Rs</Col>
-                        <Col md={6}><button onClick={addToCartHandler}>Add to cart</button></Col>
+                        <Col md={6}><button onClick={addToCartHandler} className="add_to_car_btn">Add to cart</button></Col>
                 </Row>
             </Card.Body>
             <div>

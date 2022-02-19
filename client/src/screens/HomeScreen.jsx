@@ -1,8 +1,8 @@
 import React,{useEffect} from 'react';
 import './HomeScreen.css';
-import {useSelector,useDispatch} from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
 import Pizza from '../components/Pizza';
-//import AllPiza from '../pizza-data';
+
 import {Container,Row,Col} from 'react-bootstrap';
 import {getAllPizzas} from '../actions/pizzaAction';
 
@@ -17,6 +17,7 @@ const HomeScreen = () =>{
     console.log('pizzas app==>',pizzas);
 
     useEffect(()=>{dispatch(getAllPizzas())},[dispatch]);
+
     return (
         <Container>
             { 
