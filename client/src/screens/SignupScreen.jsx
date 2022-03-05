@@ -5,16 +5,22 @@ import {registerUser} from '../actions/userAction';
 import {useDispatch,useSelector} from 'react-redux';
 import LockIcon from '@material-ui/icons/Lock';
 
+import ApLoader from '../components/ApLoader';
+import ApSuccess from '../components/ApSuccess';
+import ApError from '../components/ApError';
+
 const SignupScreen = () =>{
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [cpassword,setCPassword] = useState('');
-
+ 
     const dispatch = useDispatch();
+    const {loading,success,error} = useSelector(state=>state.registerUserReducer);
 
-    const registerHandler = () =>{
+    const registerHandler = (e) =>{
         console.log('registerHandler');
+        e.preventDefault();
         if(password !== cpassword){
             alert('Re enter password');
         }
@@ -27,7 +33,14 @@ const SignupScreen = () =>{
             <Row>
                 <Col></Col>
                 <Col>
-                <Form onSubmit={e=>e.preventDefault()} className='signup__container'>
+
+                {error && (<ApError error={error}/>) }
+                {success && (<ApSuccess success={'Registration Successful'}/>)} 
+
+                { loading ? (<ApLoader/>) : (
+
+                    
+                    <Form onSubmit={e=>registerHandler(e)} className='signup__container'>
                     <div className='lock_icon_div'>
                         <LockIcon/>
                     </div>
@@ -78,6 +91,8 @@ const SignupScreen = () =>{
                     Signup
                     </Button>
                 </Form>
+                )}
+                
                 </Col>
                 <Col></Col>
             </Row>

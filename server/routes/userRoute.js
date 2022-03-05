@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userModel = require("../models/userModel");
-
+ 
 // register
 router.post('/register',async(req,res)=>{
     console.log('req.body ==>',req.body);
@@ -45,6 +45,27 @@ router.post('/login',async(req,res)=>{
         res.status(400).json({
             message:err,
         })
+    } 
+});
+
+router.get('/getusers',async(req,res) =>{
+    try{
+        const user = await userModel.find();
+        console.log(' user ==>',user);
+        res.status(200).send(user);
+    }catch(err){
+        res.status(400).json({message:err});
+    }
+});
+
+router.post('/deleteuser' , async(req,res) =>{
+    const user_id = req.body.userid;
+    console.log('user_id');
+    try{
+        const result = await userModel.findByIdAndDelete({_id:user_id});
+        res.status(200).send('User Delete success');
+    }catch(err){
+        res.status(400).json({message:err});
     }
 });
 

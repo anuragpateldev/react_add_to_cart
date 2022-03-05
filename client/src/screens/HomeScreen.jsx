@@ -3,12 +3,16 @@ import './HomeScreen.css';
 import { useSelector , useDispatch } from 'react-redux';
 import Pizza from '../components/Pizza';
 
-import {Container,Row,Col} from 'react-bootstrap';
+import {Container,Row,Col,Button} from 'react-bootstrap';
 import {getAllPizzas} from '../actions/pizzaAction';
 
+import ApLoader from '../components/ApLoader';
+import { useHistory } from 'react-router-dom';
+
 const HomeScreen = () =>{
-    
+    const history = useHistory();
     const dispatch = useDispatch();
+    
     const pizzastate = useSelector(state=>state.getAllPizzaReducer);
     console.log('pizzastate ==>',pizzastate);
 
@@ -20,8 +24,9 @@ const HomeScreen = () =>{
 
     return (
         <Container>
+            <Button onClick={(e)=>history.push('/admin')}>Admin</Button>
             { 
-                loading ? (<h1>Loading...</h1>) 
+                loading ? (<ApLoader/>) 
                 : (error) ? (<h1>Error while fetching data</h1>) 
                 : (
                     <Row>

@@ -4,13 +4,15 @@ import { Container,Row,Col,Form,Button } from 'react-bootstrap';
 import {loginUser} from '../actions/userAction';
 import {useDispatch,useSelector} from 'react-redux';
 import LockIcon from '@material-ui/icons/Lock';
-
+import ApSuccess from '../components/ApSuccess';
+import ApError from '../components/ApError';
 
 const LoginScreen = () =>{
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
     const dispatch = useDispatch();
+    const {error,loading} = useSelector(state=>state.loginUserReducer);
 
     useEffect( ()=>{
         if(localStorage.getItem('currentUser')){
@@ -29,6 +31,8 @@ const LoginScreen = () =>{
             <Row>
                 <Col></Col>
                 <Col>
+                {error ? <ApError error={error}/> : null}
+                
                 <Form onSubmit={e=>e.preventDefault()} className='login__container'>
                     <div className='lock_icon_div'>
                         <LockIcon/>

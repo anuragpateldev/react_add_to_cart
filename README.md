@@ -1,6 +1,3 @@
-
-
-
 # React Add to cart
 
 **Client:** React, Redux, ReactBootstrap

@@ -16,3 +16,13 @@
     text-decoration: none;
     color:#fff;
 }
+
+.dropdown > button{
+    background:#111;
+    border:none;
+}
+
+.dropdown > button:hover{
+    background:#111;
+    border:none;
+}

@@ -11,6 +11,8 @@ import Policy from './components/Policy';
 import Contact from './components/Contact';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import OrderScreen from './screens/OrderScreen';
+import AdminScreen from './screens/AdminScreen';
  
 const App = () =>{
     return (
@@ -18,6 +20,7 @@ const App = () =>{
         <TopBar/>
         <ApNavBar/>
         <Switch>
+            <Route path="/admin"  component={AdminScreen} />
             <Route path="/" exact component={HomeScreen} />
             <Route path="/about" exact component={About}/>
             <Route path="/policy" exact component={Policy}/>
@@ -25,6 +28,7 @@ const App = () =>{
             <Route path="/cart" exact component={CartScreen}/>
             <Route path="/login" exact component={LoginScreen}/>
             <Route path="/signup" exact component={SignupScreen}/>
+            <Route path="/order" exact component={OrderScreen}/>
         </Switch>
         </>
     )
